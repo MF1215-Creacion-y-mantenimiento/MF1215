@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="mf1215_prueba_entorno_view_list" model="ir.ui.view">
+        <field name="name">mf1215.prueba.entorno.list</field>
+        <field name="model">mf1215.prueba.entorno</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="alumno"/>
+                <field name="mensaje"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="mf1215_prueba_entorno_view_form" model="ir.ui.view">
+        <field name="name">mf1215.prueba.entorno.form</field>
+        <field name="model">mf1215.prueba.entorno</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="alumno" placeholder="alXX"/>
+                        <field name="mensaje"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="mf1215_prueba_entorno_action" model="ir.actions.act_window">
+        <field name="name">Prueba del entorno</field>
+        <field name="res_model">mf1215.prueba.entorno</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="mf1215_prueba_entorno_menu_root" name="Prueba del entorno"/>
+    <menuitem id="mf1215_prueba_entorno_menu"
+              name="Registros"
+              parent="mf1215_prueba_entorno_menu_root"
+              action="mf1215_prueba_entorno_action"/>
+
+</odoo>

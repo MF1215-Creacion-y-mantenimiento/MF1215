@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mf1215_prueba_entorno_user,mf1215.prueba.entorno.user,model_mf1215_prueba_entorno,base.group_user,1,1,1,1

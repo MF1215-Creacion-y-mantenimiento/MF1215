@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+._*
+
+# Editores
+.vscode/
+.idea/
+
+# Entorno y secretos
+.env
+
+# Dependencias
+node_modules/
+venv/
+__pycache__/
+
+# Builds y logs
+dist/
+build/
+*.log
