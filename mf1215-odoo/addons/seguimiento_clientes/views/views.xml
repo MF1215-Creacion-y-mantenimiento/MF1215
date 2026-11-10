@@ -1,5 +1,83 @@
 <odoo>
   <data>
+    <!-- Vista lista -->
+    <record id="seguimiento_cliente_view_list" model="ir.ui.view">
+      <field name="name">seguimiento.cliente.view.list</field>
+      <field name="model">seguimiento.cliente</field>
+      <field name="arch" type="xml">
+        <list string="Seguimientos"
+          decoration-success="estado == 'realizado'"
+          decoration-warning="estado == 'pendiente'">
+          <field name="fecha" />
+          <field name="name" />
+          <field name="cliente_id" />
+          <field name="estado" widget="badge"
+            decoration-success="estado == 'realizado'"
+            decoration-warning="estado == 'pendiente'" />
+        </list>
+      </field>
+    </record>
+
+    <!-- Vista formulario y botón (tarea 4) -->
+    <record id="seguimiento_cliente_view_form" model="ir.ui.view">
+      <field name="name">seguimiento.cliente.view.form</field>
+      <field name="model">seguimiento.cliente</field>
+      <field name="arch" type="xml">
+        <form string="Seguimiento">
+          <header>
+            <button name="action_marcar_realizado"
+              type="object"
+              string="Marcar como realizado"
+              class="btn-primary"
+              invisible="estado == 'realizado'" />
+            <field name="estado" widget="statusbar" />
+          </header>
+          <sheet>
+            <div class="oe_title">
+              <label for="name" />
+              <h1>
+                <field name="name" placeholder="p. ej. Llamada de seguimiento de la oferta" />
+              </h1>
+            </div>
+            <group>
+              <group>
+                <field name="cliente_id" />
+              </group>
+              <group>
+                <field name="fecha" />
+              </group>
+            </group>
+            <field name="notas" placeholder="Resultado del contacto, próximos pasos..." />
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Vista de búsqueda y filtro (tarea 5) -->
+    <record id="seguimiento_cliente_view_search" model="ir.ui.view">
+      <field name="name">seguimiento.cliente.view.search</field>
+      <field name="model">seguimiento.cliente</field>
+      <field name="arch" type="xml">
+        <search string="Buscar seguimientos">
+          <field name="name" />
+          <field name="cliente_id" />
+          <filter name="filtro_pendientes" string="Pendientes"
+            domain="[('estado', '=', 'pendiente')]" />
+          <filter name="filtro_realizados" string="Realizados"
+            domain="[('estado', '=', 'realizado')]" />
+          <separator />
+          <filter name="filtro_fecha" string="Fecha" date="fecha" />
+          <group>
+            <filter name="agrupar_cliente" string="Cliente"
+              context="{'group_by': 'cliente_id'}" />
+            <filter name="agrupar_estado" string="Estado"
+              context="{'group_by': 'estado'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+    <!-- Acción de ventana -->
     <record id="seguimiento_cliente_action" model="ir.actions.act_window">
       <field name="name">Seguimientos de clientes</field>
       <field name="res_model">seguimiento.cliente</field>

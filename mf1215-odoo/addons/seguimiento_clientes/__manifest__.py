@@ -8,7 +8,7 @@
     "depends": ["base"],
     "data": [
         "security/ir.model.access.csv",
-        "views/seguimiento_cliente_views.xml",
+        "views/views.xml",
     ],
     # only loaded in demonstration mode
     "demo": [
