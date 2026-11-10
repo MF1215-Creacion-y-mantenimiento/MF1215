@@ -3,7 +3,7 @@
     "version": "19.0.1.0.0",
     "summary": "Registro de los seguimientos comerciales realizados a los clientes",
     "category": "Sales/CRM",
-    "author": "MF1215_3 · 013_L1SFC2400073424",
+    "author": "Rafael Martín",
     "license": "LGPL-3",
     "depends": ["base"],
     "data": [
