@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo> <!-- Vista lista -->
+  <record id="prestamo_equipo_view_list" model="ir.ui.view">
+    <field name="name">prestamo.equipo.list</field>
+    <field name="model">prestamo.equipo</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="name" />
+        <field name="cliente_id" />
+        <field name="fecha" />
+        <field name="estado" />
+      </list>
+    </field>
+  </record> <!-- Vista formulario -->
+  <record id="prestamo_equipo_view_form" model="ir.ui.view">
+    <field name="name">prestamo.equipo.form</field>
+    <field name="model">prestamo.equipo</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <group>
+              <field name="name" />
+              <field name="cliente_id" />
+            </group>
+            <group>
+              <field name="fecha" />
+              <field name="estado" />
+            </group>
+          </group>
+          <field name="notas" placeholder="Estado del equipo, accesorios entregados..." />
+        </sheet>
+      </form>
+    </field>
+  </record> <!--
+  Acción de ventana -->
+  <record id="prestamo_equipo_action" model="ir.actions.act_window">
+    <field name="name">Préstamos de equipos</field>
+    <field name="res_model">prestamo.equipo</field>
+    <field name="view_mode">list,form</field>
+  </record> <!-- Menús -->
+  <menuitem id="prestamo_equipo_menu_root" name="Préstamos" />
+  <menuitem id="prestamo_equipo_menu" name="Préstamos de equipos" parent="prestamo_equipo_menu_root"
+    action="prestamo_equipo_action" />
+</odoo>
