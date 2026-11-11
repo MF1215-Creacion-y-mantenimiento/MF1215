@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_eventos_empresa_root" name="Eventos de empresa" sequence="50"
+              web_icon="base,static/description/icon.png"/>
+    <menuitem id="menu_taller_evento" name="Eventos" parent="menu_eventos_empresa_root"
+              action="taller_evento_action" sequence="10"/>
+    <menuitem id="menu_taller_inscripcion" name="Inscripciones" parent="menu_eventos_empresa_root"
+              action="taller_inscripcion_action" sequence="20"/>
+</odoo>

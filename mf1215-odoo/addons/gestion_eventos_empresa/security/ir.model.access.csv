@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_gestion_eventos_empresa_gestion_eventos_empresa,gestion_eventos_empresa.gestion_eventos_empresa,model_gestion_eventos_empresa_gestion_eventos_empresa,base.group_user,1,1,1,1
+access_taller_evento_user,taller.evento.user,model_taller_evento,base.group_user,1,1,1,1
+access_taller_inscripcion_user,taller.inscripcion.user,model_taller_inscripcion,base.group_user,1,1,1,1

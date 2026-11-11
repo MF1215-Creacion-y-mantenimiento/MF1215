@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="taller_evento_view_list" model="ir.ui.view">
+        <field name="name">taller.evento.list</field>
+        <field name="model">taller.evento</field>
+        <field name="arch" type="xml">
+            <list string="Eventos">
+                <field name="name"/>
+                <field name="fecha"/>
+                <field name="instructor_id" optional="show"/>
+                <field name="plazas"/>
+                <field name="plazas_libres"/>
+                <field name="ocupacion" widget="progressbar"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="taller_evento_view_form" model="ir.ui.view">
+        <field name="name">taller.evento.form</field>
+        <field name="model">taller.evento</field>
+        <field name="arch" type="xml">
+            <form string="Evento">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Nombre del evento"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="fecha"/>
+                            <field name="instructor_id"/>
+                        </group>
+                        <group>
+                            <field name="plazas"/>
+                            <field name="plazas_ocupadas"/>
+                            <field name="plazas_libres"/>
+                            <field name="ocupacion" widget="progressbar"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Inscripciones" name="inscripciones">
+                            <field name="inscripcion_ids">
+                                <list editable="bottom">
+                                    <field name="partner_id"/>
+                                    <field name="email"/>
+                                    <field name="fecha_inscripcion"/>
+                                    <field name="state" widget="badge"
+                                           decoration-info="state == 'borrador'"
+                                           decoration-success="state == 'confirmada'"
+                                           decoration-muted="state == 'cancelada'"/>
+                                    <button name="action_confirmar" type="object" string="Confirmar"
+                                            icon="fa-check" invisible="state != 'borrador'"/>
+                                    <button name="action_cancelar" type="object" string="Cancelar"
+                                            icon="fa-times" invisible="state == 'cancelada'"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Participantes" name="participantes">
+                            <field name="participante_ids" widget="many2many_tags"/>
+                        </page>
+                        <page string="Descripción" name="descripcion">
+                            <field name="descripcion"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="taller_evento_view_search" model="ir.ui.view">
+        <field name="name">taller.evento.search</field>
+        <field name="model">taller.evento</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="instructor_id"/>
+                <filter name="filter_con_plazas" string="Con plazas libres"
+                        domain="[('plazas_libres', '&gt;', 0)]"/>
+                <filter name="filter_completos" string="Completos"
+                        domain="[('plazas_libres', '&lt;=', 0)]"/>
+                <group>
+                    <filter name="group_instructor" string="Instructor"
+                            context="{'group_by': 'instructor_id'}"/>
+                    <filter name="group_mes" string="Mes"
+                            context="{'group_by': 'fecha:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="taller_evento_action" model="ir.actions.act_window">
+        <field name="name">Eventos</field>
+        <field name="res_model">taller.evento</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
