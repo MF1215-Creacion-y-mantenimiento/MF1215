@@ -10,6 +10,7 @@
 # - --no-http                : no arranca el servidor web. El contenedor ya ocupa el
 #                              puerto 8069 y en el shell no se necesita.
 
+from odoo import fields
 exec(open('/mnt/extra-addons/gestion_eventos_empresa/scripts/medir.py').read())
 # Lee el fichero medir.py del addon (montado en /mnt/extra-addons) y ejecuta su código
 # en esta sesión. Así quedan definidas medir() y plan(), que usan la variable env del shell.
