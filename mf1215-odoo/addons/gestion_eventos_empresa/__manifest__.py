@@ -19,7 +19,12 @@ Fase 4: inscripción, validación y errores.
         'views/taller_evento_views.xml',
         'views/taller_inscripcion_views.xml',
         'views/menus.xml',
+        'data/ir_sequence_data.xml',
+        'views/taller_evento_views.xml',
+        'views/taller_inscripcion_views.xml',
+        'views/taller_exportacion_views.xml',
+        'views/gestion_eventos_empresa_menus.xml',
     ],
     'application': True,
-    'installable': True,
+    'installable': True,    
 }
