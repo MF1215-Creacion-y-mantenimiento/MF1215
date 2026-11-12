@@ -19,6 +19,7 @@ campos calculados y claves ajenas. Semilla fija: 1215.
 import random
 import time
 from datetime import timedelta
+from odoo import fields
 
 BASE_PERMITIDA = 'mf1215_rend'
 SEMILLA = 1215
