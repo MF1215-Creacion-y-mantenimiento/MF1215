@@ -1,0 +1,9 @@
+<menuitem id="taller_exportacion_menu_root"
+          name="Exportaciones"
+          parent="gestion_eventos_empresa_menu_root"
+          sequence="30" />
+<menuitem id="taller_exportacion_menu"
+          name="Registro de exportaciones"
+          parent="taller_exportacion_menu_root"
+          action="taller_exportacion_action"
+          sequence="20" />
