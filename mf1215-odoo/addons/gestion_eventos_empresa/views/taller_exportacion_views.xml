@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="taller_exportacion_view_list" model="ir.ui.view">
+        <field name="name">taller.exportacion.list</field>
+        <field name="model">taller.exportacion</field>
+        <field name="arch" type="xml">
+            <list create="false" decoration-danger="estado == 'error'"
+                decoration-muted="estado == 'en_curso'">
+                <field name="name" />
+                <field name="fecha_inicio" />
+                <field name="origen" />
+                <field name="usuario_id" />
+                <field name="num_registros" />
+                <field name="duración" />
+                <field name="estado" />
+            </list>
+        </field>
+    </record>
+
+    <record id="taller_exportacion_view_form" model="ir.ui.view">
+        <field name="name">taller.exportacion.form</field>
+        <field name="model">taller.exportacion</field>
+        <field name="arch" type="xml">
+            <form create="false" edit="false">
+                <header>
+                    <button name="action_descargar" type="object" string="Descarga CSV"
+                        class="btn-primary" invisible='not adjunto_id' />
+                    <field name="estado" widget="statusbar" />
+                </header>
+
+                <sheet>
+
+                    <h1>
+                        <field name="name" />
+                    </h1>
+
+                    <group>
+                        <group>
+                            <field name="origen" />
+                            <field name="usuario_id" />
+                            <field name="fecha_inicio" />
+                            <field name="duración" />
+                        </group>
+                        <group>
+                            <field name="num_registros" />
+                            <field name="desde" invisible="origen != 'planificada'" />
+                            <field name="hasta" invisible="origen != 'planificada'" />
+                            <field name="adjunto_id" />
+                        </group>
+                        <group>
+                            <field name="filtros" />
+                            <field name="mensaje" />
+                        </group>
+                    </group>
+
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="taller_exportacion_view_search" model="ir.ui.view">
+        <field name="name">taller.exportacion.view.search</field>
+        <field name="model">taller.exportacion</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <filter name="filter_error" string="Con error" domain="[('estado', '=', 'error')]" />
+                <filter name="filter_planificada" string="Planificadas"
+                    domain="[('origen', '=', 'planificada')]" />
+                <filter name="filter_manual" string="Manuales" domain="[('origen', '=', 'manual')]" />
+                <group>
+                    <filter name="group_origen" string="Origen" context="{'group_by': 'origen'}" />
+                    <filter name="group_estado" string="Resultado" context="{'group_by': 'estado'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="taller_exportacion_action" model="ir.actions.act_window">
+        <field name="name">Registro de exportaciones</field>
+        <field name="res_model">taller.exportacion</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

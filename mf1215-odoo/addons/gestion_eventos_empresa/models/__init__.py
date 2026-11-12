@@ -1,2 +1,3 @@
 from . import taller_evento
 from . import taller_inscripcion
+from . import taller_exportacion

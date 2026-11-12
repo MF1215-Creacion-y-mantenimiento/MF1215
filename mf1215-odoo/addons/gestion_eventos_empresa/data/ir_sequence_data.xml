@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo >
+    <record id="seq_taller_exportacion" model="ir.sequence">
+        <field name="name">Exportaciones de inscripciones</field>
+        <field name="code">taller.exportacion</field> 
+        <field name="prefix">EXP/%(year)s/</field>
+        <field name="padding">4</field>
+    </record>
+</odoo>
