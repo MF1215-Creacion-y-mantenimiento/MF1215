@@ -1,6 +1,8 @@
 # Se ejecuta en una terminal del equipo, no dentro de Python:
 # ----------------------------------------------------------------
 #   docker compose exec odoo odoo shell -d mf1215_rend --no-http
+#
+#   exec(open('/mnt/extra-addons/gestion_eventos_empresa/scripts/medir_c1_c3.py').read())
 # ----------------------------------------------------------------
 # - docker compose exec odoo : ejecuta un comando dentro del contenedor "odoo".
 # - odoo shell               : abre un intérprete de Python con Odoo cargado. Ya existen
