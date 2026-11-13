@@ -39,7 +39,7 @@
                             <field name="origen" />
                             <field name="usuario_id" />
                             <field name="fecha_inicio" />
-                            <field name="duración" />
+                            <field name="duracion" />
                         </group>
                         <group>
                             <field name="num_registros" />
