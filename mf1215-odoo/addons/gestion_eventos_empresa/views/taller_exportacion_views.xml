@@ -11,7 +11,7 @@
                 <field name="origen" />
                 <field name="usuario_id" />
                 <field name="num_registros" />
-                <field name="duración" />
+                <field name="duracion" />
                 <field name="estado" />
             </list>
         </field>
