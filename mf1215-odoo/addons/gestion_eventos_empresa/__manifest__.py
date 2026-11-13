@@ -15,15 +15,17 @@ Fase 4: inscripción, validación y errores.
     'license': 'LGPL-3',
     'depends': ['base', 'contacts'],
     'data': [
+        # 1. Permisos y datos
         'security/ir.model.access.csv',
+        'data/ir_sequence_data.xml',
+        # 2. Vistas y acciones (antes que los menús que las usan)
         'views/taller_evento_views.xml',
         'views/taller_inscripcion_views.xml',
-        'views/menus.xml',
-        'data/ir_sequence_data.xml',
-        'views/taller_inscripcion_views.xml',
         'views/taller_exportacion_views.xml',
+        # 3. Menús: primero el raíz, después los que cuelgan de él
+        'views/menus.xml',
         'views/gestion_eventos_empresa_menus.xml',
     ],
     'application': True,
-    'installable': True,    
+    'installable': True,
 }
