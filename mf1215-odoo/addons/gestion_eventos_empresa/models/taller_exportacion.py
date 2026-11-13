@@ -24,7 +24,8 @@ class TallerExportacion(models.Model):
     usuario_id = fields.Many2one(
         'res.users', string="Usuario", default=lambda self: self.env.user, readonly=True
     )
-    fecha_inicio = fields.Datatime(string="Inicio", default=fields.Datetime.now, readonly=True)
+    
+    fecha_inicio = fields.Datetime(string="Inicio", default=fields.Datetime.now, readonly=True)
     duracion = fields.Float(string="Duración (s)", digits=(16, 3), readonly=True)
     filtros = fields.Text(string="Filtros", readonly=True)
     desde = fields.Datetime(string="Periódo desde (UTC)", readonly=True)
