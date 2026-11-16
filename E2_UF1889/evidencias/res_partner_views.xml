@@ -1,0 +1,29 @@
+<odoo>
+  <!-- Columnas en la lista de contactos -->
+  <record id="res_partner_view_list_seguimientos" model="ir.ui.view">
+    <field name="name">res.partner.view.list.seguimientos</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_tree" />
+    <field name="arch" type="xml">
+      <field name="email" position="after">
+        <field name="num_seguimientos" optional="show" />
+        <field name="num_seguimientos_realizados" optional="show" />
+      </field>
+    </field>
+  </record>
+
+  <!-- Botón inteligente en la ficha del contacto -->
+  <record id="res_partner_view_form_seguimientos" model="ir.ui.view">
+    <field name="name">res.partner.view.form.seguimientos</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form" />
+    <field name="arch" type="xml">
+      <div name="button_box" position="inside">
+        <button name="action_ver_seguimientos" type="object"
+          class="oe_stat_button" icon="fa-comments">
+          <field name="num_seguimientos" widget="statinfo" string="Seguimientos" />
+        </button>
+      </div>
+    </field>
+  </record>
+</odoo>
