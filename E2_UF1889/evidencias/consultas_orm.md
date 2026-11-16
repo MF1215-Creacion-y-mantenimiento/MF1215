@@ -34,3 +34,25 @@ action = {
     'params': {'title': 'Seguimientos por cliente', 'message': mensaje, 'sticky':True},
 }
 ```
+### Opción más eficiente / read_group
+
+```python
+grupos = env['seguimiento.cliente']._read_group(
+    domain = [('cliente_id.name', '=like', 'E2B Cliente%')],
+    groupby = ['cliente_id', 'estado'],
+    aggregates = ['__count'],
+    order = 'cliente_id',
+)
+mensaje = '\n'.join('%s · %s: %d' % (cliente.name, estado, n) for cliente, estado, n in grupos)
+log(mensaje)
+action = {'type':'ir.actions.client', 'tag':'display_notification', 
+    'params': {'title': 'Seguimientos (read_group)', 'message': mensaje, 'sticky':True}}
+
+```
+
+## Tarea 3 Campo calculado
+
+```python
+
+
+```
