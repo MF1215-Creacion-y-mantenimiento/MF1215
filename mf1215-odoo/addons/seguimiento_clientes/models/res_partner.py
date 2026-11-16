@@ -22,7 +22,7 @@ class ResPartner(models.Model):
         store = True,
         help = "Seguimientos del cliente en estado 'Realizado'.",
     )
-    @api.depends("seguimiento_ids", "seguimientos_ids.estado")
+    @api.depends("seguimiento_ids", "seguimiento_ids.estado")
     def _compute_num_seguimientos(self):
         for partner in self:
             partner.num_seguimientos = len(partner.seguimiento_ids)
@@ -33,10 +33,10 @@ class ResPartner(models.Model):
     def action_ver_seguimientos(self):
         self.ensure_one()
         return {
-            "type": "ir.actions.act_windows",
+            "type": "ir.actions.act_window",
             "name": "Seguimientos",
             "res_model": "seguimiento.cliente",
-            "view_model": "list,form",
+            "view_mode": "list,form",
             "domain": [("cliente_id", "=", self.id)],
-            "context": {"default_clietne_id": self.id},
+            "context": {"default_cliente_id": self.id},
         }
