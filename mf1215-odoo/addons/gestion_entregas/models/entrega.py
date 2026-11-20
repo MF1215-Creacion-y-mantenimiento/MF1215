@@ -12,3 +12,15 @@ class Entrega(models.Model):
         string="Cleinte",
         required=True,
         )
+    fecha = fields.Date(string="Fecha", default=fields.Date.context_today)
+    
+    bultos = fields.Integer(string="Bultos", default=1)
+    
+    importe = fields.Float(string="Importe €")
+    
+    state = fields.Selection(
+        selection=[
+            ("pendiente", "Pendiente"),
+            ("entregada", "Entregada"),
+            ],
+        )
