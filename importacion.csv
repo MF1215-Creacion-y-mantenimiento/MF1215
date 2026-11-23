@@ -1,0 +1,6 @@
+id,name,partner_id,fecha,state
+gt_imp_001,Llamada de seguimiento,Cliente Alfa,2026-11-18,pendiente
+gt_imp_002,Envío de catálogo,Cliente Beta,2026-11-18,pendiente
+gt_imp_003,Revisión de incidencia,Cliente Beta,2026-11-19,finalizada
+gt_imp_004,Renovación de contrato,Cliente Gamma,2026-11-19,pendiente
+gt_imp_005,Encuesta de satisfacción,Cliente Gamma,2026-11-20,pendiente

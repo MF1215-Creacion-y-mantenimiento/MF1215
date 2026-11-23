@@ -1,0 +1,7 @@
+"ID","Tarea","Cliente","Fecha","Estado"
+"1","Visita cliente","E2B Cliente Gamma","2026-11-25","Finalizada"
+"6","Visita comercial","Cliente Gamma","2026-11-23","Finalizada"
+"5","Demo producto","Cliente Beta","2026-11-23","Pendiente"
+"4","Revisión contrato","Cliente Alfa","2026-11-23","Finalizada"
+"3","Enviar presupuesto","Cliente Alfa","2026-11-23","Pendiente"
+"2","Llamada inicial","Cliente Alfa","2026-11-23","Pendiente"
