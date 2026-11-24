@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS lab.hechos_oportunidades, lab.dim_etapa, lab.dim_comercial, lab.etl_log;
